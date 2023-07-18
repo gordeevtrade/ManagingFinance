@@ -1,0 +1,42 @@
+
+
+<form class="transaction-form d-flex flex-column" [formGroup]="transactionForm" (ngSubmit)="createNewTransaction()">
+  <div class="form-group">
+    <label for="categorySelect">Выберите категорию:</label>
+    <select class="form-control" id="categorySelect" formControlName="categoryId">
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="subcategorySelect">Выберите ПодКатегорию:</label>
+    <select class="form-control" id="subcategorySelect" formControlName="subcategoryId">
+      <option *ngFor="let subcategory of subCategories" [value]="subcategory.id">{{ subcategory.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="date">Date:</label>
+    <input class="form-control" type="date" id="date" formControlName="date" required>
+    <div *ngif="transactionForm.controls.date.invalid && transactionForm.controls.date.touched" class="text-danger">
+      <div *ngif="transactionForm.controls.date.errors?.required">Date is required.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="note">Note:</label>
+    <textarea class="form-control" id="note" formControlName="note" rows="2"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="amount">Amount:</label>
+    <input class="form-control" type="number" id="amount" formControlName="amount" required>
+    <div *ngif="transactionForm.controls.amount.invalid && transactionForm.controls.amount.touched" class="text-danger">
+      <div *ngif="transactionForm.controls.amount.errors?.required">Amount is required.</div>
+    </div>
+  </div>
+  
+  <button class="btn btn-primary" type="submit" [disabled]="transactionForm.invalid">Submit</button>
+  <button mat-button class="btn btn-secondary" mat-dialog-close >Закрыть</button>
+
+</form> 

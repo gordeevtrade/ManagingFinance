@@ -1,0 +1,80 @@
+
+ 
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="startDate">Начальная дата:</label>
+      <input type="date" id="startDate" class="form-control" [(ngModel)]="startDate">
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="endDate">Конечная дата:</label>
+      <input type="date" id="endDate" class="form-control" [(ngModel)]="endDate">
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-primary" (click)="getReport()">Получить отчет за период</button>
+
+
+<div class="center-div">
+  <div class="inner-div">
+
+  <div class="row g-3 my-2" *ngIf="periodReport " >
+  <div class="col-md-3">
+    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded  h-100">
+        <div *ngIf="periodReport.totalIncome"> 
+          <h2>Total Income:</h2>
+          <p class="fs-2" [ngClass]="{ 'positive-balance': periodReport.totalIncome > 0}">
+            {{ periodReport.totalIncome }}
+            $
+          </p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+  <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded  h-100">
+      <div *ngIf="periodReport.totalExpenses "> 
+          <h2>Total Expenses:</h2>
+          <p class="fs-2" [ngClass]="{ 'negative-balance': periodReport.totalExpenses <= 0}">
+            {{ periodReport.totalExpenses }}
+            $
+          </p>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+  <table  class="table bg-white rounded shadow-sm  table-hover" *ngIf="periodReport && periodReport.transactions">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Note</th>
+        <th>Действие</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactionList">
+        <td>{{ transaction.categoryName }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.date  | date }}</td>
+        <td>{{ transaction.note }}</td>
+        <td>
+          
+        <button  mat-icon-button type="button" color="primary" (click)="updateTransactionName(transaction)"> <mat-icon>edit</mat-icon>
+        </button>
+        <button  mat-icon-button type="button" color="warn" (click)="removeTransaction(transaction)"><mat-icon>delete</mat-icon>
+        </button>
+        </td>
+      </tr>
+    </tbody>
+</table>

@@ -1,0 +1,9 @@
+
+<h1 mat-dialog-title>Удалить Категорию {{subCategory?.name}}</h1>
+<h3>Удаляя категорию, все транзакции для данной категории будут удалены!</h3>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button class="delete-button" mat-dialog-close (click)="removeSubCategory()">Удалить</button>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button class="btn btn-secondary"   mat-dialog-close >Закрыть</button>
+</div>
+</div>

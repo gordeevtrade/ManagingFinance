@@ -1,0 +1,16 @@
+
+  <h1 >Редактировать категорию</h1>
+  <form class="transaction-form d-flex flex-column" [formGroup]="editCategoryForm"   (ngSubmit)="updateCategory()">
+    <div class="form-group" *ngIf="subcategorie">
+      <label for="name">Название подкатегории:</label>
+      <input class="form-control" id="name" name="name"  formControlName="name" type="text">
+      <div *ngif="editCategoryForm.controls['name'].invalid && (editCategoryForm.controls['name'].dirty || editCategoryForm.controls['name'].touched)" class="text-danger">
+        <div *ngif="editCategoryForm.controls['name'].errors?.required">Название подкатегории обязательно для заполнения.</div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="editCategoryForm.invalid" class="btn btn-primary">Редактировать</button>
+    <button mat-button class="btn btn-secondary"   mat-dialog-close >Закрыть</button>
+  </form>
+
+
+

@@ -1,0 +1,115 @@
+
+
+<div class="user-profile">
+    <p class="user-profile-text">Профиль</p>
+    <p class="user-email">{{ userEmail }}</p>
+  </div>
+            <div class="container-fluid px-4">
+                <div class="row g-3 my-2">
+                    <div class="col-md-3">
+
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded  h-100">
+                            <div *ngIf="dashBoardData.totalBalance !== undefined">
+
+                                <h2>Current Balance:</h2>
+                                <p class="fs-2" [ngClass]="{ 'positive-balance': dashBoardData.totalBalance >= 0, 'negative-balance': dashBoardData.totalBalance < 0 }">
+                                  {{ dashBoardData.totalBalance }} $
+                                </p>
+                            </div>
+                            <i class="fas fa-sharp fs-1  fa-money-bill  fs-1 primary-text border rounded-full secondary-bg p-3" style="color: #140501;"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded  h-100">
+                            <div>
+                                <h3 class="fs-2">{{dashBoardData.incomeSubcategoriesCount}}</h3>
+                                <p class="fs-5"> Category Income  Count:</p>
+                            </div>
+                            <i class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded  h-100">
+                            <div>
+                                <h3 class="fs-2">{{dashBoardData.expenseSubcategoriesCount}}</h3>
+                                <p class="fs-5">Category  Expense  Count:</p>
+                            </div>
+                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded  h-100">
+                            <div>
+                                <h3 class="fs-2">{{dashBoardData.transactionCount}}</h3>
+                                <p class="fs-5">Transaction    Count:</p>
+                            </div>
+                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row my-5">
+                    <div class="btn-toolbar d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                        <div>
+                            <button type="button" class="btn-group mr-2 btn-warning  btn-lg"  (click)="createTransaction()">Добавить Транзакцию</button>
+                        </div>
+
+                        <div class="button-add" >
+                            <button   type="button"  class ="btn-primary btn-lg " (click)="addCategory()" >Добавить Категорию</button>
+                        </div>
+                    </div>
+
+           
+              <h3 class="fs-4 mb-3">Categories</h3>
+            
+
+        <div class="col">
+        <ng-container *ngFor="let category of categoryCollection?.categories">
+          <h2>{{ category.name }}</h2>
+          <table class="table bg-white rounded shadow-sm  table-hover">
+            <tr>
+              <th>Подкатегория</th>
+              <th>Кол-во Транзакций</th>
+              <th>Действие</th>
+            </tr>
+            <ng-container *ngFor="let subcategory of category.subcategories">
+              <tr>
+                <td>{{subcategory.name}}</td>
+                <td>{{subcategory.transactionsCount}}</td>
+                <td>
+                  <button  mat-icon-button type="button" color="primary" (click)="updateSubCategory(subcategory)"> <mat-icon>edit</mat-icon>
+                  </button>
+                  <button  mat-icon-button type="button" color="warn" (click)="removeSubcategory(subcategory)"><mat-icon>delete</mat-icon>
+                  </button>
+
+                  <button  mat-icon-button type="button" color="disabled" (click)="showTransactions(subcategory)"><mat-icon>visibility</mat-icon>
+                  </button>
+
+                </td>
+                </tr>
+            </ng-container>
+          </table>
+        </ng-container>
+        </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

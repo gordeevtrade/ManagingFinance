@@ -1,0 +1,39 @@
+<!-- 
+<h1 >Редактировать Транзакцию</h1>
+  <form class="transaction-form d-flex flex-column" (ngSubmit)="updateTransaction()">
+    <div class="form-group" *ngIf="transationForUpdate">
+      <label for="name">Сумма:</label>
+      <input class="form-control"   name="amount"    [ngModel]="transationForUpdate.amount" (ngModelChange)="transationForUpdate.amount = $event" type="text">
+      <label for="name">Нотации:</label>
+      <input class="form-control"  name="note"  [ngModel]="transationForUpdate.note" (ngModelChange)="transationForUpdate.note = $event" type="text">
+      <label for="name">Дата Транзакции:</label>
+      <input class="form-control"  name="date"   [ngModel]="transationForUpdate.date | date:'yyyy-MM-dd'" (ngModelChange)="transationForUpdate.date = $event" type="text">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Редактировать</button>
+    <button mat-button class="btn btn-secondary"   mat-dialog-close >Закрыть</button>
+  </form>
+
+
+ -->
+ <h1>Редактировать Транзакцию</h1>
+ <form class="transaction-form d-flex flex-column" [formGroup]="transactionForm" (ngSubmit)="updateTransaction()">
+   <div class="form-group" *ngIf="transationForUpdate">
+     <label for="amount">Сумма:</label>
+     <input class="form-control" id="amount" formControlName="amount" type="text">
+     <div *ngif="transactionForm.controls['amount'].invalid && (transactionForm.controls['amount'].dirty || transactionForm.controls['amount'].touched)" class="text-danger">
+       <div *ngif="transactionForm.controls['amount'].errors?.required">Сумма обязательна для заполнения.</div>
+     </div>
+     <label for="note">Нотации:</label>
+     <input class="form-control" id="note" formControlName="note" type="text">
+     <label for="date">Дата Транзакции:</label>
+     <input class="form-control" id="date" formControlName="date" type="date">
+     <div *ngIf="transactionForm.controls['date'].invalid && (transactionForm.controls['date'].dirty || transactionForm.controls['date'].touched)" class="text-danger">
+       <div *ngif="transactionForm.controls['date'].errors?.required">Дата обязательна для заполнения.</div>
+     </div>
+   </div>
+ 
+   <button type="submit" class="btn btn-primary" [disabled]="transactionForm.invalid">Редактировать</button>
+   <button mat-button class="btn btn-secondary" mat-dialog-close>Закрыть</button>
+ </form>
+ 

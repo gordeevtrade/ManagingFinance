@@ -1,0 +1,24 @@
+
+<div class="d-flex justify-content-center align-items-center form-container">
+  <form [formGroup]="registrationForm" (submit)="registration()">
+    <h2 class="text-center mb-4">Registration</h2>
+
+    <div class="form-outline mb-4">
+      <input type="email" id="email" formControlName="email" class="form-control" />
+      <label class="form-label" for="email">Email address</label>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input type="password" id="password" formControlName="password" class="form-control" />
+      <label class="form-label" for="password">Password</label>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" [disabled]="registrationForm.invalid" class="btn btn-primary mb-4">Register</button>
+    </div>
+
+    <div class="text-center">
+      <p>Have an account? <a routerLink="/login">Login</a></p>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+
+
+.positive-balance {
+  color: green;
+}
+
+.negative-balance {
+  color: red;
+}
+
+.table {
+  width: 90%; 
+  margin-top: 10px;  
+  margin-left: auto;
+  margin-right: auto;
+}
+.center-div {
+  display: grid;
+  place-items: center;
+  margin-left: 150px;
+}
+
+.inner-div {
+  width: 90%; 
+}
