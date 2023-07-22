@@ -1,16 +1,23 @@
 # ManagingFinance
 (Asp Web Api,  NET 6 , Entity Framework, MsSql, Html, Css ,Js,TypeScript Angular 15, Bootstrap 5, Angular Material, Identity, JWT, Google OAuth) 
 
-This is a personal finance management application designed to empower users to handle their finances effectively. At its core, the app is equipped with CRUD (Create, Read, Update, Delete) functionalities, allowing users to efficiently manage their income, expenses, savings, and investments.
 
-Features include:
+Managing Self Finance App
 
-Finance Tracking: Users can record their income, expenses, savings, and investments. They can also update or delete these records as needed, providing a real-time overview of their financial health.
+This is a comprehensive personal finance management application developed using .NET 6. The app incorporates robust security measures and a range of functionalities to help users effectively manage their financial data.
 
-Budgeting: The app allows users to set financial goals and budgets, and tracks their progress towards these goals over time.
+Key Features:
 
-Financial Reports: Users can generate financial reports to gain insights into their spending habits and saving trends.
+Finance Tracking: The app enables users to manage their income, expenses, savings, and investments through CRUD (Create, Read, Update, Delete) operations, giving a real-time overview of their financial situation.
 
-Google OAuth: To ensure secure and convenient user access, the app integrates Google OAuth for authentication. This enables users to sign in using their Google credentials, streamlining the sign-in process and enhancing the security of user data.
+User Authentication: Incorporating ASP.NET Identity for user registration and login, the application ensures secure access to user data. It also supports Google OAuth, allowing users to sign in using their Google credentials.
 
-The Managing Self Finance App aims to provide a user-friendly platform for individuals to take control of their financial lives. Whether it's tracking everyday expenses or planning long-term investments, the app delivers a comprehensive suite of tools to assist users in making informed financial decisions.
+JWT Authentication: The system uses JSON Web Tokens (JWT) for maintaining sessions, ensuring the secure transmission of user information.
+
+Data Validation: The app employs extensive data validation to ensure the accuracy and integrity of the user data. It checks input data for correctness before processing, minimizing potential errors and improving overall data quality.
+
+Interactive UI: The application's user interface is designed to be intuitive and user-friendly, making it easy for individuals to manage their financial data.
+
+Security: In addition to secure authentication, the app has been designed with a focus on secure data handling and privacy protection.
+
+The Managing Self Finance App serves as a powerful tool for personal financial management, providing a secure and user-friendly platform to track, analyze, and manage financial data effectively.
